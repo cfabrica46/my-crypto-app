@@ -1,11 +1,25 @@
 # Commands
 
-## generate a private key
+## Generar Keys
+
+### Generate a private key
 ~~~
-openssl genrsa -out key.pem 3072
+./my-crypto-app genprivatersa -b 2048 -o key.pem
 ~~~
 
-## generate corresponding public key
+### Generate corresponding public key
 ~~~
-openssl rsa -in key.pem -pubout -out public.pem
+./my-crypto-app genpublicrsa -i key.pem -o public.pem
+~~~
+
+## Encrypt/Decrypt
+
+### Encrypt
+~~~
+./my-crypto-app encrypt -f texto.txt -k public.pem -o encrypt.enc
+~~~
+
+### Decrypt
+~~~
+./my-crypto-app decrypt -f encrypt.enc -k key.pem -o decrypt.txt
 ~~~
